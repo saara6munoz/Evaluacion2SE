@@ -1,40 +1,27 @@
 package supermercado;
 
-public class Carne {
-    private String pollo, vacuno, cerdo;
+import java.util.Date;
 
+public class Carne extends Producto{
+    //atributos
+    private Date fechaVencimiento;
+    
+    //constructores
     public Carne() {
     }
 
-    public Carne(String pollo, String vacuno, String cerdo) {
-        this.pollo = pollo;
-        this.vacuno = vacuno;
-        this.cerdo = cerdo;
+    public Carne(Date fechaVencimiento, String nombre, float valor, String descripcion) {
+        super(nombre, valor, descripcion);
+        this.fechaVencimiento = fechaVencimiento;
+    }
+    
+    //getters and stters
+    public Date getFechaVencimiento() {
+        return fechaVencimiento;
     }
 
-    public String getPollo() {
-        return pollo;
+    public void setFechaVencimiento(Date fechaVencimiento) {
+        this.fechaVencimiento = fechaVencimiento;
     }
-
-    public void setPollo(String pollo) {
-        this.pollo = pollo;
-    }
-
-    public String getVacuno() {
-        return vacuno;
-    }
-
-    public void setVacuno(String vacuno) {
-        this.vacuno = vacuno;
-    }
-
-    public String getCerdo() {
-        return cerdo;
-    }
-
-    public void setCerdo(String cerdo) {
-        this.cerdo = cerdo;
-    }
-
-   
+    
 }
