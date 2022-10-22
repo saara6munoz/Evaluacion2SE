@@ -2,7 +2,7 @@ package supermercado;
 
 public class Verdura extends Producto{
     //atributos
-    private String tipoVerdura;
+    private String tipoVerdura; //raiz - hortalizas - bulbo
 
     //constructores
     public Verdura() {
@@ -14,7 +14,6 @@ public class Verdura extends Producto{
     }
     
     //gettes and setters
-
     public String getTipoVerdura() {
         return tipoVerdura;
     }

@@ -1,18 +1,18 @@
 package supermercado;
 
-public class Producto {
-    //atribut5os
-    private String nombre;
-    private float valor;
-    private String descripcion;
+public abstract class Producto {
+    //atributos
+    protected String nombre;
+    protected float precio;
+    protected String descripcion;
 
     //constructores
     public Producto() {
     }
 
-    public Producto(String nombre, float valor, String descripcion) {
+    public Producto(String nombre, float precio, String descripcion) {
         this.nombre = nombre;
-        this.valor = valor;
+        this.precio = precio;
         this.descripcion = descripcion;
     }
 
@@ -25,12 +25,12 @@ public class Producto {
         this.nombre = nombre;
     }
 
-    public float getValor() {
-        return valor;
+    public float getPrecio() {
+        return precio;
     }
 
-    public void setValor(int valor) {
-        this.valor = valor;
+    public void setPrecio(int precio) {
+        this.precio = precio;
     }
 
     public String getDescripcion() {

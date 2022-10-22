@@ -1,27 +1,24 @@
 package supermercado;
 
-import java.util.Date;
-
 public class Carne extends Producto{
     //atributos
-    private Date fechaVencimiento;
+    private float porcentajeGrasa;
     
     //constructores
     public Carne() {
     }
 
-    public Carne(Date fechaVencimiento, String nombre, float valor, String descripcion) {
-        super(nombre, valor, descripcion);
-        this.fechaVencimiento = fechaVencimiento;
+    public Carne(float porcentajeGrasa, String nombre, float precio, String descripcion) {
+        super(nombre, precio, descripcion);
+        this.porcentajeGrasa = porcentajeGrasa;
     }
     
     //getters and stters
-    public Date getFechaVencimiento() {
-        return fechaVencimiento;
+    public float getPorcentajeGrasa() {
+        return porcentajeGrasa;
     }
 
-    public void setFechaVencimiento(Date fechaVencimiento) {
-        this.fechaVencimiento = fechaVencimiento;
+    public void setPorcentajeGrasa(float porcentajeGrasa) {
+        this.porcentajeGrasa = porcentajeGrasa;
     }
-    
 }
