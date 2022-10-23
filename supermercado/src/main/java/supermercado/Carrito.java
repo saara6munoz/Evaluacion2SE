@@ -6,8 +6,9 @@ import java.util.Scanner;
 
 public class Carrito implements CalcularDesc{
     //atributos
-    private ArrayList<Producto> listaProductos;
-    
+    private ArrayList<Producto> listaProductos = new ArrayList<>();
+    private ArrayList<Verdura> listaCarrito = new ArrayList<>();
+     
     //getters and setters
     public ArrayList<Producto> getListaProductos() {
         return listaProductos;
@@ -16,24 +17,55 @@ public class Carrito implements CalcularDesc{
     public void setListaProductos(ArrayList<Producto> listaProductos) {
         this.listaProductos = listaProductos;
     }
-    //se crea metodo que crea una lista de productos 
     public Carrito() {
         listaProductos = new ArrayList<>();
     }
 
     //método para validar la igualdad del nombre ingresado 
     public boolean validarProducto(String nombre) {
-        for (Producto p : listaProductos) {
-            if (p.nombre.equals(nombre)) {
-                return true;
+        return listaProductos.stream().anyMatch(p -> (p.nombre.equals(nombre)));
+    } 
+    
+    public boolean validarCarrito(String nombre) {
+        return listaCarrito.stream().anyMatch(p -> (p.nombre.equals(nombre)));
+    } 
+    public void agregarProducto(Scanner sc) {
+        System.out.println("Ingrese el nombre del producto : ");
+        String nombre = sc.next();
+        boolean existe = this.validarProducto(nombre);
+        if (existe) {
+            System.out.println("El producto ya fue ingresado anteriormente");
+            System.out.println("Se han añadido 2 "+nombre);
+        } else {
+            System.out.println("ingrese el precio del producto: ");
+            float precio = sc.nextInt();
+            System.out.println("ingrese la descripción del producto: ");
+            String descripcion = sc.next();
+            System.out.println("Ingrese el número de la categoría correspondiente:\n"
+                    + "1) Carne\n "
+                    + "2) Verdura\n "
+                    + "3) Bebestible\n ");
+            int cat = sc.nextInt();
+            switch (cat) {
+                case 1:
+                    System.out.println("¿cual es el porcentaje de grasa del producto? : ");
+                    float grasa = sc.nextFloat();
+                    listaProductos.add(new Carne(grasa, nombre, precio, descripcion));
+                    break;
+                case 2:
+                    System.out.println("¿Qué tipo de verdura es? : ");
+                    String tipo = sc.next();
+                    listaProductos.add(new Verdura(tipo, nombre, precio, descripcion));
+                    break;
+                case 3:
+                    System.out.println("¿que sabor es? : ");
+                    String sabor = sc.next();
+                    listaProductos.add(new Bebestible(sabor, nombre, precio, descripcion));
+                    break;
             }
         }
-        return false;
     }
-    
-    public void agregarProducto(Scanner sc) {}
-    
-        public void eliminarProducto(String nombre) {
+    public void eliminarProducto(String nombre) {
         int i = 0;
         for (Producto p : listaProductos) {
             boolean existe = this.validarProducto(nombre);
@@ -48,7 +80,32 @@ public class Carrito implements CalcularDesc{
             System.out.println("el producto ha sido eliminado");
         }
     }
+    
+    public void agregarCarro(Scanner sc){
+        System.out.println("Ingrese el número de la categoría correspondiente:\n"
+                        + "1) Carne\n "
+                        + "2) Verdura\n "
+                        + "3) Bebestible\n ");
+        int cat = sc.nextInt();
+        switch (cat) {
+            case 1:
+                Carne ca = new Carne();
+                System.out.println("Ingrese el nombre de la carne: ");
+                String nombre = sc.next();
+                ca.carnes();
+                System.out.println(ca.findByName(nombre, ca.listaCarnes));
+                break;
+            case 2:
+                System.out.println("Ingrese el nombre de la verdura: ");
 
+                break;
+            case 3:
+                System.out.println("Ingrese el nombre del bebestible: ");
+
+                break;
+        }
+    }
+                    
     @Override
     public void precioFinal() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
