@@ -97,6 +97,7 @@ public class Carrito implements CalcularDesc{
     
     public void agregarCarro(Scanner sc){ 
        int cat;
+       boolean salir = false;
         do{
             System.out.println("Ingrese el número de la categoría correspondiente:\n"
                         + "1) Carne\n "
@@ -105,6 +106,7 @@ public class Carrito implements CalcularDesc{
                         + "4) Ver la lista de mis productos\n "
                         + "5) Eliminar productos de mi carrito \n "
                         + "6) Total de mi compra\n "
+                        + "7) Salir\n "
             );
             cat = sc.nextInt();
             switch (cat) {
@@ -117,6 +119,7 @@ public class Carrito implements CalcularDesc{
                 ca.carnes();
                 System.out.println(ca.findByName(nombre, ca.listaCarnes));
                 listaCarrito.add(ca.findByName(nombre, ca.listaCarnes));
+                descCarne(carne, ca.getPrecio(nombre, ca.listaCarnes));
                 while(bucle){
                 System.out.println("Desea añadir otro alimento de la categoría carne? SI/NO");
                 String op = sc.next();
@@ -126,6 +129,7 @@ public class Carrito implements CalcularDesc{
                     String nombre1 = sc.next();
                     System.out.println(ca.findByName(nombre1, ca.listaCarnes));
                     listaCarrito.add(ca.findByName(nombre1, ca.listaCarnes));
+                    descCarne(carne, ca.getPrecio(nombre1, ca.listaCarnes));
                     System.out.println("Existen "+contador+" productos de la categoría carne");
                 }else{
                     System.out.println("Presione una tecla para volver al menú de selección de categorías");
@@ -192,10 +196,19 @@ public class Carrito implements CalcularDesc{
                 eliminarProducto(nombre);
                 System.out.println(listaCarrito.toString());
                 break;
+            case 6:    
+                
+             
+                
+                break;
+
+            case 7:
+                salir = true;
+                break;
             default:
                 System.out.println("El numero de la categoria seleccionada esta fuera de rango");
             }}
-        while(cat<5);
+        while(cat<7);
         System.out.println("Fin del menú");}
                     
     @Override

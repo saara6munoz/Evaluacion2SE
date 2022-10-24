@@ -54,6 +54,15 @@ public class Carne extends Producto{
     }
         return null;
     }
+    
+    public float getPrecio(String nombre, ArrayList<Carne> listaCarnes) {
+    for (Carne c : listaCarnes) {
+        if (c.getNombre().equals(nombre)) {
+            return c.getPrecio();
+        }
+    }
+        return 0;
+    }
 
     @Override
     public String toString() {
