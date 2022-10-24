@@ -59,5 +59,10 @@ public class Carne extends Producto{
     public String toString() {
         return "Carne{" + "Nombre=" + getNombre() +" Precio="+ getPrecio()+ " Descripción= "+ getDescripcion()+", porcentajeGrasa=" + porcentajeGrasa + '}';
     }
-    
+    public void agregarComentarios(String com){
+        System.out.println("El comentario añadido es: "+com);
+    }
+    public void agregarComentarios(String com, float precio){
+        System.out.println("El comentario añadido es: "+com+"y el precio notificado asociado es: "+precio);
+    }
 }

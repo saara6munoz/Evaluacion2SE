@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Bebestible extends Producto{
     //atributos
     private String sabor;
-    private ArrayList<Bebestible> listaBebestibles = new ArrayList<>();
+    public ArrayList<Bebestible> listaBebestibles = new ArrayList<>();
     
     //constructores
     public Bebestible() {
@@ -41,5 +41,18 @@ public class Bebestible extends Producto{
             }
         }
     }
-   
+    public String findByName(String nombre, ArrayList<Bebestible> listaBebestibles) {
+    for (Bebestible b : listaBebestibles) {
+        if (b.getNombre().equals(nombre)) {
+            return b.toString(); 
+        }
+    }
+        return null;
+    }
+
+    @Override
+    public String toString() {
+        return "Bebestible{" + "Nombre=" + getNombre() +" Precio="+ getPrecio()+ " Descripción= "+ getDescripcion()+ "sabor=" + sabor + '}';
+    }
+
 }

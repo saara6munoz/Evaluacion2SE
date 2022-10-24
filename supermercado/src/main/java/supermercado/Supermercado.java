@@ -48,8 +48,6 @@ public class Supermercado {
                 case 3:
                     Carrito c = new Carrito();
                     c.agregarCarro(entrada);
-
-                    
                     break;
                 case 4:
                     salir = true;

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Verdura extends Producto{
     //atributos 
-    private ArrayList<Verdura> listaVerduras = new ArrayList<>();
+    public ArrayList<Verdura> listaVerduras = new ArrayList<>();
     private String tipoVerdura; //raiz - hortalizas - bulbo
 
     //constructores
@@ -44,5 +44,18 @@ public class Verdura extends Producto{
                 System.out.println("tipo de verdura: " + v.tipoVerdura);
             }
         }
+    }
+    public String findByName(String nombre, ArrayList<Verdura> listaVerduras) {
+    for (Verdura v : listaVerduras) {
+        if (v.getNombre().equals(nombre)) {
+            return v.toString(); 
+        }
+    }
+        return null;
+    }
+
+    @Override
+    public String toString() {
+        return "Verdura{" +  "Nombre=" + getNombre() +" Precio="+ getPrecio()+ " Descripción= "+ getDescripcion()+", tipoVerdura=" + tipoVerdura + '}';
     }
 }
